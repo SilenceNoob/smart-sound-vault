@@ -20,7 +20,6 @@ Grab the latest build for your platform from [Releases](../../releases):
 |----------|-------|
 | Linux x86_64 | `smart-sound-vault-v*-*-x86_64-unknown-linux-gnu.tar.gz` |
 | Windows x86_64 | `smart-sound-vault-v*-*-x86_64-pc-windows-msvc.zip` |
-| macOS (Intel) | `smart-sound-vault-v*-*-x86_64-apple-darwin.tar.gz` |
 | macOS (Apple Silicon) | `smart-sound-vault-v*-*-aarch64-apple-darwin.tar.gz` |
 
 ## Install
