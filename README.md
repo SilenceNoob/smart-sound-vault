@@ -2,8 +2,6 @@
 
 A desktop sound library manager with semantic search, AI generation, and pro audio tools.
 
-桌面端音效库管理工具，支持语义搜索、AI 生成与专业音频处理。
-
 ## Features
 
 - **Hybrid search** — keyword (FTS5) + semantic (CLAP embeddings) fused ranking
@@ -40,8 +38,6 @@ tar xzf smart-sound-vault-v*-x86_64-unknown-linux-gnu.tar.gz
 ## Auto-update
 
 In the **About** window, click **Check for Updates**. The app downloads the new version, backs up the previous one, and restarts. If a new version misbehaves, use **Restore Previous Version** in the same window.
-
-打开 **关于** 窗口，点 **检查更新**。应用会下载新版本、备份上一版本并重启。新版有问题可在同窗口点 **还原上一版本**。
 
 ## Notes
 
