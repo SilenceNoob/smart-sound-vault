@@ -24,7 +24,7 @@
       "nav.sponsor": "赞助",
       "nav.cta": "下载",
 
-      "hero.badge": "v0.1.3 · 永久免费 · 开源",
+      "hero.badge": "v0.1.4 · 永久免费 · 开源",
       "hero.title": "用 AI 重新定义音效搜索",
       "hero.sub": "为独立游戏开发者打造的智能音效库：用自然语言描述就能找到“听起来像”的音效，<br class=\"desktop-br\" />还能用 AI 直接生成全新音效。专业编辑、GPU 加速、数据全在本地 —— 永久免费。",
       "hero.cta1": "立即下载",
@@ -70,8 +70,8 @@
       "dl.win": "Windows 10 / 11 · 支持 CUDA 与 DirectML 加速",
       "dl.linux": "主流发行版 · 支持 CUDA 加速",
       "dl.mac": "macOS · 支持 CoreML 加速",
-      "dl.btn": "下载 v0.1.3",
-      "dl.meta": "当前版本 v0.1.3 · 永久免费 · 数据全部存储在本地",
+      "dl.btn": "下载 v0.1.4",
+      "dl.meta": "当前版本 v0.1.4 · 永久免费 · 数据全部存储在本地",
       "dl.changelog": "查看更新日志",
 
       "sp.eyebrow": "定价与赞助",
@@ -114,7 +114,7 @@
       "nav.sponsor": "Sponsor",
       "nav.cta": "Download",
 
-      "hero.badge": "v0.1.3 · Free Forever · Open Source",
+      "hero.badge": "v0.1.4 · Free Forever · Open Source",
       "hero.title": "Find any sound. Describe it, not name it.",
       "hero.sub": "The AI-powered sound library for indie game developers.<br class=\"desktop-br\" />Semantic search, AI sound generation, pro-grade editing — 100% local, free forever.",
       "hero.cta1": "Download Now",
@@ -160,8 +160,8 @@
       "dl.win": "Windows 10 / 11 · CUDA &amp; DirectML",
       "dl.linux": "Major distros · CUDA support",
       "dl.mac": "macOS · CoreML acceleration",
-      "dl.btn": "Download v0.1.3",
-      "dl.meta": "v0.1.3 · Free forever · All data stays local",
+      "dl.btn": "Download v0.1.4",
+      "dl.meta": "v0.1.4 · Free forever · All data stays local",
       "dl.changelog": "View changelog",
 
       "sp.eyebrow": "Pricing &amp; Sponsorship",
