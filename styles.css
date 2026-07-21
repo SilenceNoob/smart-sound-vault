@@ -561,12 +561,6 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   max-width: 580px;
 }
 
-/* slide 0 的标题/图标与大卡头部重复，隐藏（保留描述文字） */
-.shot-slide[data-index="0"] .shot-info h3,
-.shot-slide[data-index="0"] .shot-info .feature-icon {
-  visibility: hidden;
-}
-
 /* 跨平台 slide 无截图，文字居中占满 */
 .shot-slide[data-index="8"] {
   grid-template-columns: 1fr;
