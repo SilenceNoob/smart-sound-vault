@@ -31,7 +31,7 @@
       "hero.cta2": "查看 GitHub",
       "hero.b1": "3 种搜索模式",
       "hero.b2": "跨 3 大平台",
-      "hero.b3": "100% 本地 &amp; 免费",
+      "hero.b3": "免费",
       "hero.b4": "GPU 加速",
 
       "features.eyebrow": "核心功能",
@@ -121,7 +121,7 @@
       "hero.cta2": "View on GitHub",
       "hero.b1": "3 Search Modes",
       "hero.b2": "3 Platforms",
-      "hero.b3": "100% Local &amp; Free",
+      "hero.b3": "Free",
       "hero.b4": "GPU Accelerated",
 
       "features.eyebrow": "Features",
