@@ -431,7 +431,6 @@
     { label: "f.wave.title" },
     { label: "f.eq.title" },
     { label: "f.library.title" },
-    { label: "f.gpu.title" },
     { label: "f.theme.title" },
     { label: "f.cross.title" }
   ];
