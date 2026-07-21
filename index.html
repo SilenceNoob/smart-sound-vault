@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Sound Vault — 为独立游戏开发者打造的智能音效库</title>
+  <meta name="description" content="Smart Sound Vault：永久免费的 AI 音效管理工具。语义搜索、AI 音效生成、专业音频编辑，跨 Windows / Linux / macOS。" />
+
+  <!-- 字体：Google Fonts（带系统字体回退，加载失败不影响使用） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════ 顶部导航栏（sticky） ═══════════ -->
+  <header class="nav" id="top">
+    <div class="nav-inner container">
+      <a class="nav-brand" href="#top" aria-label="Smart Sound Vault">
+        <img src="assets/logo.svg" alt="" class="nav-logo" width="34" height="34" />
+        <span class="nav-title">Smart Sound Vault</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="主导航">
+        <a href="#features" data-i18n="nav.features">功能</a>
+        <a href="#download" data-i18n="nav.download">下载</a>
+        <a href="#sponsor" data-i18n="nav.sponsor">赞助</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Switch language / 切换语言">
+          <span class="lang-opt" data-lang="zh">中</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-opt" data-lang="en">EN</span>
+        </button>
+        <a class="nav-github" href="https://github.com/silencenoob/smart-sound-vault" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        </a>
+        <a class="btn btn-primary btn-sm nav-cta" href="https://github.com/silencenoob/smart-sound-vault/releases" target="_blank" rel="noopener" data-i18n="nav.cta">下载</a>
+        <button class="hamburger" id="hamburger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════════ Hero 首屏 ═══════════ -->
+    <section class="hero">
+      <canvas id="wave-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <p class="hero-badge reveal">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span data-i18n="hero.badge">v0.1.3 · 永久免费 · 开源</span>
+        </p>
+
+        <h1 class="hero-title reveal" data-i18n="hero.title">用 AI 重新定义音效搜索</h1>
+
+        <p class="hero-sub reveal" data-i18n="hero.sub">
+          为独立游戏开发者打造的智能音效库：用自然语言描述就能找到“听起来像”的音效，<br class="desktop-br" />
+          还能用 AI 直接生成全新音效。专业编辑、GPU 加速、数据全在本地 —— 永久免费。
+        </p>
+
+        <div class="hero-ctas reveal">
+          <a class="btn btn-primary btn-lg" href="https://github.com/silencenoob/smart-sound-vault/releases" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="hero.cta1">立即下载</span>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/silencenoob/smart-sound-vault" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            <span data-i18n="hero.cta2">查看 GitHub</span>
+          </a>
+        </div>
+
+        <ul class="hero-badges reveal" aria-label="产品亮点">
+          <li data-i18n="hero.b1">3 种搜索模式</li>
+          <li data-i18n="hero.b2">跨 3 大平台</li>
+          <li data-i18n="hero.b3">100% 本地 &amp; 免费</li>
+          <li data-i18n="hero.b4">GPU 加速</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════ 核心功能展示 ═══════════ -->
+    <section class="section" id="features">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-eyebrow" data-i18n="features.eyebrow">核心功能</p>
+          <h2 class="section-title" data-i18n="features.title">一个工具，管整个音效工作流</h2>
+          <p class="section-desc" data-i18n="features.desc">从“找到声音”到“调出想要的声音”，Smart Sound Vault 覆盖独立开发者的完整音效链路。</p>
+        </header>
+
+        <!-- 头号卖点：三种搜索模式（醒目大卡） -->
+        <article class="feature-hero glass reveal">
+          <div class="feature-hero-text">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3 data-i18n="f.search.title">三种搜索模式，想找就能找到</h3>
+            <ul class="mode-list">
+              <li><strong>Keyword</strong><span data-i18n="f.search.m1">FTS5 全文检索 · BM25 排序</span></li>
+              <li><strong>Semantic</strong><span data-i18n="f.search.m2">CLAP 语义理解 · 描述即搜索</span></li>
+              <li><strong>Hybrid</strong><span data-i18n="f.search.m3">RRF 融合 · 精准 + 联想</span></li>
+            </ul>
+          </div>
+
+          <!-- 小动画：输入中文描述 → 找到相似音效 -->
+          <div class="search-demo" aria-hidden="true">
+            <div class="search-demo-bar">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span class="search-demo-input" id="demo-input"></span><span class="search-demo-caret"></span>
+            </div>
+            <ul class="search-demo-results" id="demo-results">
+              <li><span class="demo-wave"></span><span data-i18n="f.search.r1">rain_on_metal_roof_01.wav</span><em>98%</em></li>
+              <li><span class="demo-wave"></span><span data-i18n="f.search.r2">heavy_rain_tin_shelter.wav</span><em>94%</em></li>
+              <li><span class="demo-wave"></span><span data-i18n="f.search.r3">storm_roof_ambience_loop.wav</span><em>91%</em></li>
+            </ul>
+          </div>
+
+          <!-- 功能标签：点击切换轮播 -->
+          <div class="shot-tabs" id="shot-tabs" role="tablist">
+            <button class="shot-tab active" data-slide="0" role="tab" data-i18n="tab.0">搜索</button>
+            <button class="shot-tab" data-slide="1" role="tab" data-i18n="tab.1">翻译桥</button>
+            <button class="shot-tab" data-slide="2" role="tab" data-i18n="tab.2">音效生成</button>
+            <button class="shot-tab" data-slide="3" role="tab" data-i18n="tab.3">波形频谱</button>
+            <button class="shot-tab" data-slide="4" role="tab" data-i18n="tab.4">EQ 响度</button>
+            <button class="shot-tab" data-slide="5" role="tab" data-i18n="tab.5">音库管理</button>
+            <button class="shot-tab" data-slide="6" role="tab" data-i18n="tab.6">GPU·隐私</button>
+            <button class="shot-tab" data-slide="7" role="tab" data-i18n="tab.7">外观主题</button>
+            <button class="shot-tab" data-slide="8" role="tab" data-i18n="tab.8">跨平台</button>
+          </div>
+
+          <!-- ═══ 截图轮播：截图与功能文案一起切换 ═══ -->
+          <div class="shot-carousel" id="shot-carousel" aria-roledescription="carousel" aria-label="功能截图轮播">
+            <div class="shot-track" id="shot-track">
+            <div class="shot-slide active" data-index="0">
+              <div class="shot-media">
+                <!-- 替换截图：把下面的占位 div 换成 <img> 即可，见 assets/README.md -->
+                <div class="screenshot-placeholder" data-shot="search-modes">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                  <span>Screenshot: Search Modes</span>
+                </div>
+              </div>
+              <div class="shot-info">
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <h3 data-i18n="f.search.title"></h3>
+                <p data-i18n="f.search.desc"></p>
+              </div>
+            </div>
+            <div class="shot-slide" data-index="1">
+              <div class="shot-media">
+                <!-- 替换截图：把下面的占位 div 换成 <img> 即可，见 assets/README.md -->
+                <div class="screenshot-placeholder" data-shot="ai-translate">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                  <span>Screenshot: AI Translate Bridge</span>
+                </div>
+              </div>
+              <div class="shot-info">
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></div>
+                <h3 data-i18n="f.translate.title"></h3>
+                <p data-i18n="f.translate.desc"></p>
+              </div>
+            </div>
+            <div class="shot-slide" data-index="2">
+              <div class="shot-media">
+                <!-- 替换截图：把下面的占位 div 换成 <img> 即可，见 assets/README.md -->
+                <div class="screenshot-placeholder" data-shot="ai-generate">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                  <span>Screenshot: AI Sound Generation</span>
+                </div>
+              </div>
+              <div class="shot-info">
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3"/><path d="M18.5 5.5 16 8"/><path d="M5.5 5.5 8 8"/><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12 3 12 3s-2 4.5-4 6.5-3 3.5-3 5.5a7 7 0 0 0 7 7z"/></svg></div>
+                <h3 data-i18n="f.generate.title"></h3>
+                <p data-i18n="f.generate.desc"></p>
+              </div>
+            </div>
+            <div class="shot-slide" data-index="3">
+              <div class="shot-media">
+                <!-- 替换截图：把下面的占位 div 换成 <img> 即可，见 assets/README.md -->
+                <div class="screenshot-placeholder" data-shot="waveform">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                  <span>Screenshot: Waveform &amp; Spectrogram</span>
+                </div>
+              </div>
+              <div class="shot-info">
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13a2 2 0 0 0 2-2V7a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0V4a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0v-4a2 2 0 0 1 2-2"/></svg></div>
+                <h3 data-i18n="f.wave.title"></h3>
+                <p data-i18n="f.wave.desc"></p>
+              </div>
+            </div>
+            <div class="shot-slide" data-index="4">
+              <div class="shot-media">
+                <!-- 替换截图：把下面的占位 div 换成 <img> 即可，见 assets/README.md -->
+                <div class="screenshot-placeholder" data-shot="eq">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                  <span>Screenshot: EQ &amp; Loudness</span>
+                </div>
+              </div>
+              <div class="shot-info">
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
+                <h3 data-i18n="f.eq.title"></h3>
+                <p data-i18n="f.eq.desc"></p>
+              </div>
+            </div>
+            <div class="shot-slide" data-index="5">
+              <div class="shot-media">
+                <!-- 替换截图：把下面的占位 div 换成 <img> 即可，见 assets/README.md -->
+                <div class="screenshot-placeholder" data-shot="library">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                  <span>Screenshot: Library Management</span>
+                </div>
+              </div>
+              <div class="shot-info">
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="M12 10v6"/><path d="M9 13h6"/></svg></div>
+                <h3 data-i18n="f.library.title"></h3>
+                <p data-i18n="f.library.desc"></p>
+              </div>
+            </div>
+            <div class="shot-slide" data-index="6">
+              <div class="shot-media">
+                <!-- 替换截图：把下面的占位 div 换成 <img> 即可，见 assets/README.md -->
+                <div class="screenshot-placeholder" data-shot="gpu-privacy">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                  <span>Screenshot: GPU &amp; Privacy Settings</span>
+                </div>
+              </div>
+              <div class="shot-info">
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg></div>
+                <h3 data-i18n="f.gpu.title"></h3>
+                <p data-i18n="f.gpu.desc"></p>
+              </div>
+            </div>
+            <div class="shot-slide" data-index="7">
+              <div class="shot-media">
+                <!-- 替换截图：把下面的占位 div 换成 <img> 即可，见 assets/README.md -->
+                <div class="screenshot-placeholder" data-shot="theme">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                  <span>Screenshot: Theme Customization</span>
+                </div>
+              </div>
+              <div class="shot-info">
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.25-.29-.43-.68-.43-1.12A1.68 1.68 0 0 1 14.5 16h3.66A3.87 3.87 0 0 0 22 12.06C21.9 6.5 17.5 2 12 2z"/></svg></div>
+                <h3 data-i18n="f.theme.title"></h3>
+                <p data-i18n="f.theme.desc"></p>
+              </div>
+            </div>
+            <div class="shot-slide" data-index="8">
+              <div class="shot-media">
+                <!-- 替换截图：把下面的占位 div 换成 <img> 即可，见 assets/README.md -->
+                <div class="screenshot-placeholder" data-shot="cross-platform">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                  <span>Screenshot: Cross-platform &amp; Updater</span>
+                </div>
+              </div>
+              <div class="shot-info">
+                <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                <h3 data-i18n="f.cross.title"></h3>
+                <p data-i18n="f.cross.desc"></p>
+              </div>
+            </div>
+            </div>
+            <button class="shot-arrow shot-prev" id="shot-prev" aria-label="上一张截图">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="shot-arrow shot-next" id="shot-next" aria-label="下一张截图">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="shot-footer">
+              <p class="shot-caption" id="shot-caption"></p>
+              <div class="shot-dots" id="shot-dots"></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════ 下载区 ═══════════ -->
+    <section class="section section-alt" id="download">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-eyebrow" data-i18n="dl.eyebrow">下载</p>
+          <h2 class="section-title" data-i18n="dl.title">全平台原生支持</h2>
+          <p class="section-desc" data-i18n="dl.desc">选择你的平台，从 GitHub Releases 获取最新版本。</p>
+        </header>
+
+        <div class="download-grid">
+          <article class="card glass platform-card reveal">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" class="platform-icon" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5zM3 12.5h7.5v7.1L3 18.5v-6zM11.5 4.2 21 3v8.5h-9.5V4.2zM11.5 12.5H21V21l-9.5-1.3v-7.2z"/></svg>
+            <h3>Windows</h3>
+            <p class="platform-note" data-i18n="dl.win">Windows 10 / 11 · 支持 CUDA 与 DirectML 加速</p>
+            <a class="btn btn-primary" href="https://github.com/silencenoob/smart-sound-vault/releases" target="_blank" rel="noopener" data-i18n="dl.btn">下载 v0.1.3</a>
+          </article>
+
+          <article class="card glass platform-card reveal">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="platform-icon" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            <h3>Linux</h3>
+            <p class="platform-note" data-i18n="dl.linux">主流发行版 · 支持 CUDA 加速</p>
+            <a class="btn btn-primary" href="https://github.com/silencenoob/smart-sound-vault/releases" target="_blank" rel="noopener" data-i18n="dl.btn">下载 v0.1.3</a>
+          </article>
+
+          <article class="card glass platform-card reveal">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" class="platform-icon" aria-hidden="true"><path d="M17.05 12.54c-.03-2.89 2.36-4.27 2.47-4.34-1.35-1.97-3.44-2.24-4.18-2.27-1.78-.18-3.47 1.05-4.37 1.05-.9 0-2.29-1.02-3.77-1-1.94.03-3.72 1.13-4.72 2.86-2.01 3.49-.51 8.66 1.45 11.5.96 1.39 2.1 2.95 3.6 2.89 1.45-.06 2-.93 3.74-.93s2.24.93 3.77.9c1.56-.03 2.55-1.41 3.5-2.81 1.1-1.61 1.55-3.17 1.58-3.25-.04-.02-3.03-1.16-3.07-4.6zM14.16 4.06c.8-.97 1.34-2.32 1.19-3.66-1.15.05-2.55.77-3.38 1.73-.74.86-1.39 2.23-1.22 3.55 1.29.1 2.6-.65 3.41-1.62z"/></svg>
+            <h3>macOS</h3>
+            <p class="platform-note" data-i18n="dl.mac">macOS · 支持 CoreML 加速</p>
+            <a class="btn btn-primary" href="https://github.com/silencenoob/smart-sound-vault/releases" target="_blank" rel="noopener" data-i18n="dl.btn">下载 v0.1.3</a>
+          </article>
+        </div>
+
+        <p class="download-meta reveal">
+          <span data-i18n="dl.meta">当前版本 v0.1.3 · 永久免费 · 数据全部存储在本地</span>
+          · <a href="https://github.com/silencenoob/smart-sound-vault/releases" target="_blank" rel="noopener" data-i18n="dl.changelog">查看更新日志</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════ 定价与赞助 ═══════════ -->
+    <section class="section" id="sponsor">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-eyebrow" data-i18n="sp.eyebrow">定价与赞助</p>
+          <h2 class="section-title" data-i18n="sp.title">永久免费，真心实意</h2>
+        </header>
+
+        <div class="sponsor-grid">
+          <!-- 永久免费大卡 -->
+          <article class="card glass free-card reveal">
+            <p class="free-price"><span data-i18n="sp.free">永久免费</span></p>
+            <p class="free-sub" data-i18n="sp.freeSub">Free Forever</p>
+            <ul class="free-list">
+              <li data-i18n="sp.f1">开源透明，代码可查</li>
+              <li data-i18n="sp.f2">无订阅、无广告、无内购</li>
+              <li data-i18n="sp.f3">无功能阉割，更新永远免费</li>
+              <li data-i18n="sp.f4">数据全在本地，隐私无忧</li>
+            </ul>
+          </article>
+
+          <!-- 赞助卡 -->
+          <article class="card glass sponsor-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+            </div>
+            <h3 data-i18n="sp.coffee">请作者喝杯咖啡</h3>
+            <p data-i18n="sp.coffeeDesc">如果这个工具对你有帮助，欢迎支持项目的持续开发。完全自愿，不赞助也能用全部功能。</p>
+            <div class="sponsor-actions">
+              <a class="btn btn-primary" href="https://space.bilibili.com/19131632" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.8 4.1 19.5 2.4a1 1 0 0 1 1.4 1.4l-1.6 1.6c.6.1 1.2.3 1.7.7.8.6 1.2 1.5 1.2 2.6v8.5c0 2-1.6 3.6-3.6 3.6H5.4c-2 0-3.6-1.6-3.6-3.6V8.7c0-1.1.4-2 1.2-2.6.5-.4 1.1-.6 1.7-.7L3.1 3.8a1 1 0 0 1 1.4-1.4l1.7 1.7c.5-.1 1-.1 1.5-.1h8.6c.5 0 1 .1 1.5.1zM7 10.5a1.5 1.5 0 0 0-1.5 1.5v1a1.5 1.5 0 0 0 3 0v-1A1.5 1.5 0 0 0 7 10.5zm10 0a1.5 1.5 0 0 0-1.5 1.5v1a1.5 1.5 0 0 0 3 0v-1a1.5 1.5 0 0 0-1.5-1.5z"/></svg>
+                <span data-i18n="sp.bili">B 站支持</span>
+              </a>
+              <a class="btn btn-ghost" href="https://ko-fi.com/zzxxh" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/></svg>
+                <span>Ko-fi</span>
+              </a>
+            </div>
+            <!-- 二维码占位：替换为真实图片即可，见 assets/README.md -->
+            <div class="qr-row">
+              <div class="screenshot-placeholder qr-placeholder" data-shot="qr-bilibili">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14h1M14 20h1M18 18h3v3h-2"/></svg>
+                <span data-i18n="sp.qr">二维码占位</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════ 页脚 ═══════════ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="nav-brand" href="#top">
+          <img src="assets/logo.svg" alt="" class="nav-logo" width="30" height="30" />
+          <span class="nav-title">Smart Sound Vault</span>
+        </a>
+        <p data-i18n="footer.tagline">为独立游戏开发者打造的智能音效库。</p>
+        <p class="footer-copy">© 2025 ZzxxH. All rights reserved.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="页脚链接">
+        <p class="footer-heading" data-i18n="footer.links">快速链接</p>
+        <a href="https://github.com/silencenoob/smart-sound-vault" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/silencenoob/smart-sound-vault/releases" target="_blank" rel="noopener" data-i18n="footer.releases">Releases 下载</a>
+        <!-- 邮箱占位：替换为你的真实邮箱 -->
+        <a href="mailto:zzxxh@example.com" data-i18n="footer.email">联系作者</a>
+      </nav>
+
+      <div class="footer-right">
+        <p class="footer-heading" data-i18n="footer.settings">偏好设置</p>
+        <button class="lang-toggle" id="lang-toggle-footer" aria-label="Switch language / 切换语言">
+          <span class="lang-opt" data-lang="zh">中</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-opt" data-lang="en">EN</span>
+        </button>
+        <p class="footer-hint" data-i18n="footer.hint">软件内支持明暗主题与自定义调色板</p>
+      </div>
+    </div>
+    <p class="footer-made">Made with ❤ for indie developers</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

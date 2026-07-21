@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Smart Sound Vault logo">
+  <defs>
+    <linearGradient id="ssv-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f4f5"/>
+      <stop offset="1" stop-color="#4ade80"/>
+    </linearGradient>
+    <linearGradient id="ssv-bar" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#4ade80"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 圆角方块（音频工作区 / Vault 容器） -->
+  <rect x="6" y="6" width="52" height="52" rx="15"
+        fill="rgba(74,222,128,0.06)" stroke="url(#ssv-grad)" stroke-width="3.5"/>
+
+  <!-- 内部音波（五条频谱柱） -->
+  <g fill="url(#ssv-bar)">
+    <rect x="17" y="28" width="5" height="10" rx="2.5"/>
+    <rect x="25" y="21" width="5" height="24" rx="2.5"/>
+    <rect x="33" y="14" width="5" height="38" rx="2.5"/>
+    <rect x="41" y="25" width="5" height="16" rx="2.5"/>
+  </g>
+</svg>
