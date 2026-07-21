@@ -427,7 +427,6 @@
   // 与 HTML 中 .shot-slide 的顺序一一对应；label 复用功能卡标题的 i18n key
   const SHOTS = [
     { label: "f.search.title" },
-    { label: "f.translate.title" },
     { label: "f.generate.title" },
     { label: "f.wave.title" },
     { label: "f.eq.title" },
