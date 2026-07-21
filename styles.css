@@ -558,7 +558,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .shot-media .screenshot-placeholder {
   margin-top: 0;
   aspect-ratio: auto;
-  max-width: 460px;
+  max-width: 520px;
 }
 
 /* slide 0 的标题/图标与大卡头部重复，隐藏（保留描述文字） */
