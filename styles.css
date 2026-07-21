@@ -542,7 +542,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .shot-slide {
   grid-area: 1 / 1;          /* 所有 slide 堆叠在同一格，做淡入淡出 */
   display: grid;
-  grid-template-columns: minmax(0, 480px) 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 32px;
   align-items: center;
   opacity: 0;
@@ -558,6 +558,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .shot-media .screenshot-placeholder {
   margin-top: 0;
   aspect-ratio: auto;
+  max-width: 460px;
 }
 
 /* slide 0 的标题/图标与大卡头部重复，隐藏（保留描述文字） */
