@@ -423,7 +423,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 /* 替换真实截图时：给占位框内的 <img> 用这组样式（见 README） */
 .screenshot-placeholder img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 420px;
   object-fit: contain;
 }
 
@@ -554,12 +555,21 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   transform: translateY(0);
   pointer-events: auto;
 }
-.shot-media .screenshot-placeholder { margin-top: 0; }
+.shot-media .screenshot-placeholder {
+  margin-top: 0;
+  aspect-ratio: auto;
+}
 
 /* slide 0 的标题/图标与大卡头部重复，隐藏（保留描述文字） */
 .shot-slide[data-index="0"] .shot-info h3,
 .shot-slide[data-index="0"] .shot-info .feature-icon {
   visibility: hidden;
+}
+
+/* 跨平台 slide 无截图，文字居中占满 */
+.shot-slide[data-index="8"] {
+  grid-template-columns: 1fr;
+  text-align: center;
 }
 
 .shot-info h3 {
